@@ -24,8 +24,7 @@ export const FileExplorer = ({ activeFile, onFileSelect }: FileExplorerProps) =>
       isOpen: true,
       children: [
         { id: 'main.js', name: 'main.js', type: 'file' },
-        { id: 'index.html', name: 'index.html', type: 'file' },
-        { id: 'style.css', name: 'style.css', type: 'file' },
+        { id: 'main.cpp', name: 'main.cpp', type: 'file' },
         { id: 'script.py', name: 'script.py', type: 'file' },
       ]
     }
@@ -35,8 +34,7 @@ export const FileExplorer = ({ activeFile, onFileSelect }: FileExplorerProps) =>
     const ext = fileName.split('.').pop()?.toLowerCase();
     switch (ext) {
       case 'js': return 'javascript';
-      case 'html': return 'html';
-      case 'css': return 'css';
+      case 'cpp': return 'cpp';
       case 'py': return 'python';
       default: return 'plaintext';
     }

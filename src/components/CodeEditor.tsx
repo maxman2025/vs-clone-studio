@@ -34,7 +34,7 @@ export const CodeEditor = ({ value, onChange, language, onRun, isRunning }: Code
   return (
     <div className="flex-1 flex flex-col bg-editor-bg">
       <div className="flex items-center justify-between p-2 border-b border-tab-border bg-tab-bg">
-        <span className="text-sm text-tab-fg">main.{language === 'javascript' ? 'js' : language}</span>
+        <span className="text-sm text-tab-fg">main.{language === 'javascript' ? 'js' : language === 'cpp' ? 'cpp' : language === 'python' ? 'py' : language}</span>
         <Button
           onClick={onRun}
           disabled={isRunning}

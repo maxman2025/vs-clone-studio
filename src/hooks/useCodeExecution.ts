@@ -70,26 +70,14 @@ export const useCodeExecution = () => {
     }
   }, [addOutput]);
 
-  const executeHTML = useCallback(async (code: string) => {
+  const executeCpp = useCallback(async (code: string) => {
     setIsRunning(true);
     
     try {
-      // For HTML, we'll show a preview in the output
-      addOutput('result', 'HTML code executed. Preview would appear in a real browser.');
-      addOutput('log', `HTML content: ${code.substring(0, 100)}${code.length > 100 ? '...' : ''}`);
-    } catch (error) {
-      addOutput('error', `Error: ${error instanceof Error ? error.message : String(error)}`);
-    } finally {
-      setIsRunning(false);
-    }
-  }, [addOutput]);
-
-  const executeCSS = useCallback(async (code: string) => {
-    setIsRunning(true);
-    
-    try {
-      addOutput('result', 'CSS code executed. Styles would be applied in a real browser.');
-      addOutput('log', `CSS content: ${code.substring(0, 100)}${code.length > 100 ? '...' : ''}`);
+      // Simulate C++ execution (in a real implementation, you'd use a C++ compiler)
+      addOutput('log', 'C++ execution simulated (requires C++ compiler)');
+      addOutput('log', `C++ code: ${code.substring(0, 100)}${code.length > 100 ? '...' : ''}`);
+      addOutput('result', 'In a real implementation, this would compile and execute C++ code using a web-based compiler.');
     } catch (error) {
       addOutput('error', `Error: ${error instanceof Error ? error.message : String(error)}`);
     } finally {
@@ -122,11 +110,8 @@ export const useCodeExecution = () => {
       case 'javascript':
         await executeJavaScript(code);
         break;
-      case 'html':
-        await executeHTML(code);
-        break;
-      case 'css':
-        await executeCSS(code);
+      case 'cpp':
+        await executeCpp(code);
         break;
       case 'python':
         await executePython(code);
@@ -134,7 +119,7 @@ export const useCodeExecution = () => {
       default:
         addOutput('error', `Language ${language} not supported for execution`);
     }
-  }, [executeJavaScript, executeHTML, executeCSS, executePython, addOutput]);
+  }, [executeJavaScript, executeCpp, executePython, addOutput]);
 
   return {
     output,

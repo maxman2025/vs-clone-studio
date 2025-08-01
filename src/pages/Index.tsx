@@ -36,8 +36,8 @@ fruits.length;`);
   const { output, isRunning, executeCode, clearOutput } = useCodeExecution();
 
   const fileTemplates = {
-    'main.js': `// Welcome to VS Code Editor!
-// This editor runs code in your browser without needing a server.
+    'main.js': `// Welcome to Code Runner!
+// This editor runs JavaScript code in your browser.
 
 console.log("Hello, World!");
 
@@ -56,40 +56,31 @@ console.log("Fruits:", fruits);
 // Return a value to see the result
 fruits.length;`,
     
-    'index.html': `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Web Page</title>
-</head>
-<body>
-    <h1>Hello, HTML World!</h1>
-    <p>This is a sample HTML file.</p>
-    <button onclick="alert('Button clicked!')">Click me!</button>
-</body>
-</html>`,
+    'main.cpp': `// C++ Code Example
+// Note: This is a simulation - real C++ execution would require a compiler
+
+#include <iostream>
+#include <vector>
+#include <string>
+
+int main() {
+    std::cout << "Hello, C++ World!" << std::endl;
     
-    'style.css': `/* CSS Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #f0f0f0;
-}
-
-h1 {
-    color: #333;
-    text-align: center;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    // Variables
+    std::string name = "C++ Developer";
+    int age = 25;
+    
+    std::cout << "Name: " << name << ", Age: " << age << std::endl;
+    
+    // Vector
+    std::vector<int> numbers = {1, 2, 3, 4, 5};
+    std::cout << "Numbers: ";
+    for(int num : numbers) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+    
+    return 0;
 }`,
     
     'script.py': `# Python Script
