@@ -52,15 +52,40 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// VS Code colors
+				editor: {
+					bg: 'hsl(var(--editor-bg))',
+					fg: 'hsl(var(--editor-fg))',
+					line: 'hsl(var(--editor-line-bg))',
+					selection: 'hsl(var(--editor-selection))',
+					cursor: 'hsl(var(--editor-cursor))'
+				},
+				activity: {
+					bg: 'hsl(var(--activity-bar-bg))',
+					fg: 'hsl(var(--activity-bar-fg))',
+					active: 'hsl(var(--activity-bar-active))'
+				},
 				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+					bg: 'hsl(var(--sidebar-bg))',
+					fg: 'hsl(var(--sidebar-fg))',
+					border: 'hsl(var(--sidebar-border))'
+				},
+				tab: {
+					bg: 'hsl(var(--tab-bg))',
+					fg: 'hsl(var(--tab-fg))',
+					'active-bg': 'hsl(var(--tab-active-bg))',
+					'active-fg': 'hsl(var(--tab-active-fg))',
+					border: 'hsl(var(--tab-border))'
+				},
+				status: {
+					bg: 'hsl(var(--status-bar-bg))',
+					fg: 'hsl(var(--status-bar-fg))'
+				},
+				output: {
+					bg: 'hsl(var(--output-bg))',
+					fg: 'hsl(var(--output-fg))',
+					error: 'hsl(var(--output-error))',
+					success: 'hsl(var(--output-success))'
 				}
 			},
 			borderRadius: {

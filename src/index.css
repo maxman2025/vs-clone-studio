@@ -8,89 +8,125 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* VS Code inspired colors */
+    --background: 0 0% 97%;
+    --foreground: 0 0% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 213 94% 68%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 45%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 45%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 213 94% 68%;
 
-    --radius: 0.5rem;
+    --radius: 0.25rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* VS Code specific colors */
+    --editor-bg: 0 0% 100%;
+    --editor-fg: 0 0% 20%;
+    --editor-line-bg: 0 0% 98%;
+    --editor-selection: 213 94% 68%;
+    --editor-cursor: 0 0% 20%;
+    
+    --activity-bar-bg: 0 0% 95%;
+    --activity-bar-fg: 0 0% 40%;
+    --activity-bar-active: 213 94% 68%;
+    
+    --sidebar-bg: 0 0% 97%;
+    --sidebar-fg: 0 0% 20%;
+    --sidebar-border: 0 0% 90%;
+    
+    --tab-bg: 0 0% 94%;
+    --tab-fg: 0 0% 40%;
+    --tab-active-bg: 0 0% 100%;
+    --tab-active-fg: 0 0% 20%;
+    --tab-border: 0 0% 88%;
+    
+    --status-bar-bg: 213 94% 68%;
+    --status-bar-fg: 0 0% 100%;
+    
+    --output-bg: 0 0% 98%;
+    --output-fg: 0 0% 20%;
+    --output-error: 0 84% 60%;
+    --output-success: 142 76% 36%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* VS Code Dark Theme */
+    --background: 220 13% 18%;
+    --foreground: 220 14% 71%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 13% 18%;
+    --card-foreground: 220 14% 71%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 13% 18%;
+    --popover-foreground: 220 14% 71%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 213 94% 68%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 13% 15%;
+    --secondary-foreground: 220 9% 46%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 220 13% 15%;
+    --accent-foreground: 220 14% 71%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 220 13% 15%;
+    --input: 220 13% 15%;
+    --ring: 213 94% 68%;
+
+    /* VS Code Dark specific colors */
+    --editor-bg: 220 13% 18%;
+    --editor-fg: 220 14% 71%;
+    --editor-line-bg: 220 13% 16%;
+    --editor-selection: 213 94% 68%;
+    --editor-cursor: 220 14% 71%;
+    
+    --activity-bar-bg: 220 13% 13%;
+    --activity-bar-fg: 220 9% 46%;
+    --activity-bar-active: 213 94% 68%;
+    
+    --sidebar-bg: 220 13% 16%;
+    --sidebar-fg: 220 14% 71%;
+    --sidebar-border: 220 13% 15%;
+    
+    --tab-bg: 220 13% 13%;
+    --tab-fg: 220 9% 46%;
+    --tab-active-bg: 220 13% 18%;
+    --tab-active-fg: 220 14% 71%;
+    --tab-border: 220 13% 15%;
+    
+    --status-bar-bg: 213 94% 68%;
+    --status-bar-fg: 0 0% 100%;
+    
+    --output-bg: 220 13% 16%;
+    --output-fg: 220 14% 71%;
+    --output-error: 0 84% 60%;
+    --output-success: 142 76% 36%;
   }
 }
 
@@ -100,6 +136,31 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-mono;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
   }
 }
+
+/* Code editor specific styles */
+.code-editor {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.line-numbers {
+  user-select: none;
+  pointer-events: none;
+}
+
+.syntax-keyword { color: hsl(205 100% 50%); }
+.syntax-string { color: hsl(17 100% 45%); }
+.syntax-comment { color: hsl(120 100% 25%); }
+.syntax-number { color: hsl(120 100% 25%); }
+.syntax-function { color: hsl(265 100% 58%); }
+
+.dark .syntax-keyword { color: hsl(207 100% 66%); }
+.dark .syntax-string { color: hsl(31 100% 71%); }
+.dark .syntax-comment { color: hsl(101 29% 47%); }
+.dark .syntax-number { color: hsl(101 29% 47%); }
+.dark .syntax-function { color: hsl(286 60% 67%); }
