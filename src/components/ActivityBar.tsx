@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Files, Search, GitBranch, Settings, Code2 } from "lucide-react";
+import { Files, Search, GitBranch, Settings, Code2, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface ActivityBarProps {
@@ -11,7 +11,7 @@ export const ActivityBar = ({ activeView, onViewChange }: ActivityBarProps) => {
   const items = [
     { id: 'explorer', icon: Files, label: 'Explorer' },
     { id: 'search', icon: Search, label: 'Search' },
-    { id: 'source-control', icon: GitBranch, label: 'Source Control' },
+    { id: 'terminal', icon: Terminal, label: 'Terminal' },
     { id: 'extensions', icon: Code2, label: 'Extensions' },
   ];
 

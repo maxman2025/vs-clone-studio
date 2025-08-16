@@ -21,14 +21,36 @@ export const CodeEditor = ({ value, onChange, language, onRun, isRunning }: Code
   }, [value]);
 
   const applySyntaxHighlighting = (code: string) => {
-    if (language !== 'javascript') return code;
-    
-    return code
-      .replace(/\b(const|let|var|function|return|if|else|for|while|class|import|export|from|default)\b/g, '<span class="syntax-keyword">$1</span>')
-      .replace(/(["'`])((?:(?!\1)[^\\]|\\.)*)(\1)/g, '<span class="syntax-string">$1$2$3</span>')
-      .replace(/\/\/.*$/gm, '<span class="syntax-comment">$&</span>')
-      .replace(/\b(\d+)\b/g, '<span class="syntax-number">$1</span>')
-      .replace(/\b(\w+)(?=\s*\()/g, '<span class="syntax-function">$1</span>');
+    switch (language) {
+      case 'javascript':
+        return code
+          .replace(/\b(const|let|var|function|return|if|else|for|while|class|import|export|from|default|async|await|try|catch|throw|new)\b/g, '<span class="syntax-keyword">$1</span>')
+          .replace(/(["'`])((?:(?!\1)[^\\]|\\.)*)(\1)/g, '<span class="syntax-string">$1$2$3</span>')
+          .replace(/\/\/.*$/gm, '<span class="syntax-comment">$&</span>')
+          .replace(/\/\*[\s\S]*?\*\//g, '<span class="syntax-comment">$&</span>')
+          .replace(/\b(\d+)\b/g, '<span class="syntax-number">$1</span>')
+          .replace(/\b(\w+)(?=\s*\()/g, '<span class="syntax-function">$1</span>');
+      
+      case 'cpp':
+        return code
+          .replace(/\b(int|float|double|char|bool|void|string|class|struct|public|private|protected|if|else|for|while|do|switch|case|break|continue|return|include|using|namespace|std|const|static|virtual|override)\b/g, '<span class="syntax-keyword">$1</span>')
+          .replace(/(["'])((?:(?!\1)[^\\]|\\.)*)(\1)/g, '<span class="syntax-string">$1$2$3</span>')
+          .replace(/\/\/.*$/gm, '<span class="syntax-comment">$&</span>')
+          .replace(/\/\*[\s\S]*?\*\//g, '<span class="syntax-comment">$&</span>')
+          .replace(/\b(\d+)\b/g, '<span class="syntax-number">$1</span>')
+          .replace(/#\w+/g, '<span class="syntax-preprocessor">$&</span>');
+      
+      case 'python':
+        return code
+          .replace(/\b(def|class|if|else|elif|for|while|in|try|except|finally|with|as|import|from|return|yield|lambda|and|or|not|is|None|True|False|pass|break|continue|global|nonlocal)\b/g, '<span class="syntax-keyword">$1</span>')
+          .replace(/(["']{1,3})((?:(?!\1)[^\\]|\\.)*)(\1)/g, '<span class="syntax-string">$1$2$3</span>')
+          .replace(/#.*$/gm, '<span class="syntax-comment">$&</span>')
+          .replace(/\b(\d+)\b/g, '<span class="syntax-number">$1</span>')
+          .replace(/\b(\w+)(?=\s*\()/g, '<span class="syntax-function">$1</span>');
+      
+      default:
+        return code;
+    }
   };
 
   return (

@@ -4,6 +4,8 @@ import { FileExplorer } from "@/components/FileExplorer";
 import { CodeEditor } from "@/components/CodeEditor";
 import { OutputPanel } from "@/components/OutputPanel";
 import { StatusBar } from "@/components/StatusBar";
+import { SearchPanel } from "@/components/SearchPanel";
+import { Terminal } from "@/components/Terminal";
 import { useCodeExecution } from "@/hooks/useCodeExecution";
 
 const Index = () => {
@@ -31,7 +33,11 @@ console.log("Fruits:", fruits);
 fruits.length;`);
   
   const [outputVisible, setOutputVisible] = useState(true);
+  const [searchVisible, setSearchVisible] = useState(false);
+  const [terminalVisible, setTerminalVisible] = useState(false);
   const [cursorPosition, setCursorPosition] = useState({ line: 1, column: 1 });
+  const [searchMatches, setSearchMatches] = useState(0);
+  const [currentMatch, setCurrentMatch] = useState(0);
   
   const { output, isRunning, executeCode, clearOutput } = useCodeExecution();
 
@@ -125,6 +131,29 @@ print("Fibonacci(8):", fibonacci(8))`
     executeCode(code, currentLanguage);
   };
 
+  const handleSearch = (query: string) => {
+    if (!query) {
+      setSearchMatches(0);
+      setCurrentMatch(0);
+      return;
+    }
+    
+    const matches = (code.match(new RegExp(query, 'gi')) || []).length;
+    setSearchMatches(matches);
+    setCurrentMatch(matches > 0 ? 1 : 0);
+  };
+
+  const handleViewChange = (view: string) => {
+    setActiveView(view);
+    
+    // Handle special views
+    if (view === 'search') {
+      setSearchVisible(true);
+    } else if (view === 'terminal') {
+      setTerminalVisible(true);
+    }
+  };
+
   // Calculate cursor position from textarea
   useEffect(() => {
     const lines = code.split('\n');
@@ -136,7 +165,7 @@ print("Fibonacci(8):", fibonacci(8))`
       {/* Main layout */}
       <div className="flex-1 flex">
         {/* Activity Bar */}
-        <ActivityBar activeView={activeView} onViewChange={setActiveView} />
+        <ActivityBar activeView={activeView} onViewChange={handleViewChange} />
         
         {/* Sidebar */}
         {activeView === 'explorer' && (
@@ -148,6 +177,18 @@ print("Fibonacci(8):", fibonacci(8))`
         
         {/* Main content area */}
         <div className="flex-1 flex flex-col">
+          {/* Search Panel */}
+          {searchVisible && (
+            <SearchPanel
+              onSearch={handleSearch}
+              onFindNext={() => setCurrentMatch(prev => prev < searchMatches ? prev + 1 : 1)}
+              onFindPrevious={() => setCurrentMatch(prev => prev > 1 ? prev - 1 : searchMatches)}
+              onClose={() => setSearchVisible(false)}
+              matches={searchMatches}
+              currentMatch={currentMatch}
+            />
+          )}
+          
           {/* Editor */}
           <CodeEditor
             value={code}
@@ -155,6 +196,12 @@ print("Fibonacci(8):", fibonacci(8))`
             language={currentLanguage}
             onRun={handleRun}
             isRunning={isRunning}
+          />
+          
+          {/* Terminal */}
+          <Terminal
+            isVisible={terminalVisible}
+            onClose={() => setTerminalVisible(false)}
           />
           
           {/* Output Panel */}

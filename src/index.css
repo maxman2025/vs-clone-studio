@@ -153,14 +153,16 @@ All colors MUST be HSL.
   pointer-events: none;
 }
 
-.syntax-keyword { color: hsl(205 100% 50%); }
+.syntax-keyword { color: hsl(205 100% 50%); font-weight: bold; }
 .syntax-string { color: hsl(17 100% 45%); }
-.syntax-comment { color: hsl(120 100% 25%); }
+.syntax-comment { color: hsl(120 100% 25%); font-style: italic; }
 .syntax-number { color: hsl(120 100% 25%); }
-.syntax-function { color: hsl(265 100% 58%); }
+.syntax-function { color: hsl(265 100% 58%); font-weight: 500; }
+.syntax-preprocessor { color: hsl(300 60% 70%); font-weight: bold; }
 
-.dark .syntax-keyword { color: hsl(207 100% 66%); }
-.dark .syntax-string { color: hsl(31 100% 71%); }
-.dark .syntax-comment { color: hsl(101 29% 47%); }
-.dark .syntax-number { color: hsl(101 29% 47%); }
-.dark .syntax-function { color: hsl(286 60% 67%); }
+.dark .syntax-keyword { color: hsl(300 60% 70%); font-weight: bold; }
+.dark .syntax-string { color: hsl(31 88% 67%); }
+.dark .syntax-comment { color: hsl(101 29% 47%); font-style: italic; }
+.dark .syntax-number { color: hsl(101 39% 67%); }
+.dark .syntax-function { color: hsl(54 79% 79%); font-weight: 500; }
+.dark .syntax-preprocessor { color: hsl(300 60% 70%); font-weight: bold; }
